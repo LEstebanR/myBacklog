@@ -6,10 +6,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="p-8 z-10 flex flex-wrap justify-center gap-x-1 gap-y-3 sm:gap-x-2 lg:justify-start">
-        <Link
-          href="https://github.com/LEstebanR/project_template"
-          target="_blank"
-        >
+        <Link href="https://github.com/LEstebanR/myBacklog" target="_blank">
           <GoMarkGithub className="h-6 w-6 text-white" />
         </Link>
         <div className="mx-2 h-[30px] w-[0.5px] rotate-[20deg] transform bg-neutral-700"></div>
