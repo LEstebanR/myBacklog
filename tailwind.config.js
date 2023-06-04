@@ -12,11 +12,11 @@ module.exports = {
       secondary: '#ECF8F9',
       red: '#FF0000',
     },
-    extend: {
-      fontFamily: {
-        sans: ['applesystem', 'sans-serif'],
-      },
+    fontFamily: {
+      sans: ['applesystem', 'sans-serif'],
+      serif: ['Georgia', 'serif'],
     },
+    extend: {},
   },
   plugins: [],
 }
