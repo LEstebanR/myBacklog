@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -6,17 +5,16 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    colors: {
-      white: '#FFFFFF',
-      primary: '#00DFA2',
-      secondary: '#ECF8F9',
-      red: '#FF0000',
+    extend: {
+      colors: {
+        primary: '#00DFA2',
+        secondary: '#ECF8F9',
+      },
+      gradientColorStops: {
+        primary: '#00DFA2',
+        secondary: '#ECF8F9',
+      },
     },
-    fontFamily: {
-      sans: ['applesystem', 'sans-serif'],
-      serif: ['Georgia', 'serif'],
-    },
-    extend: {},
   },
   plugins: [],
 }
