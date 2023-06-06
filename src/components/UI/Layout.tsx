@@ -8,7 +8,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="flex flex-col items-center min-h-screen justify-between bg-secondary">
+    <div className="flex flex-col items-center min-h-screen justify-between from-transparent bg-gradient-to-b from-secondary to-white">
       <Header />
       <main>{children}</main>
       <Footer />

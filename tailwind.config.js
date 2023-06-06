@@ -8,11 +8,11 @@ module.exports = {
     extend: {
       colors: {
         primary: '#00DFA2',
-        secondary: '#ECF8F9',
+        secondary: '#e0f2fe',
       },
       gradientColorStops: {
         primary: '#00DFA2',
-        secondary: '#ECF8F9',
+        secondary: '#e0f2fe',
       },
     },
   },
