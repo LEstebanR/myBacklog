@@ -12,7 +12,7 @@ module.exports = {
       },
       gradientColorStops: {
         primary: '#00DFA2',
-        secondary: '#e0f2fe', // sky-100
+        secondary: '#e0f2fe',
       },
     },
   },
