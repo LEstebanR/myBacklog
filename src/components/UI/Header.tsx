@@ -1,10 +1,12 @@
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Logo from './Logo'
 import Button from './Button'
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = (): void => {
@@ -26,9 +28,19 @@ const Header: React.FC = () => {
     >
       <Logo />
       <div className="flex gap-4">
-        <Button type="primary" size="lg">
-          <Link href="/login">Login</Link>
-        </Button>
+        {router.pathname === '/login' ? (
+          <Link href="/signup">
+            <Button type="primary" size="lg">
+              Sign up
+            </Button>
+          </Link>
+        ) : (
+          <Link href="/login">
+            <Button type="primary" size="lg">
+              Login
+            </Button>
+          </Link>
+        )}
       </div>
     </header>
   )

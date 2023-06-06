@@ -39,7 +39,7 @@ const Button: React.FC<ButtonProps> = ({ children, type, size }) => {
   return (
     <button
       type="button"
-      className={`rounded-lg ${colorClasses} py-2  text-white font-semibold border border-black`}
+      className={`rounded-lg ${colorClasses} py-2    text-white font-semibold border border-black`}
     >
       <p className="text-white">{children}</p>
     </button>
