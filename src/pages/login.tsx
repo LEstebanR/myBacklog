@@ -1,7 +1,8 @@
 import React from 'react'
+import Login from '../components/forms/Login'
 
-const Login: React.FC = () => {
-  return /*#__PURE__*/ React.createElement('div', null, 'Login')
+const LoginPage: React.FC = () => {
+  return <Login />
 }
 
-export default Login
+export default LoginPage
