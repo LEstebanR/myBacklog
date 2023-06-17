@@ -1,10 +1,14 @@
 import React, { useState, ChangeEvent } from 'react'
-// import Image from 'next/image'
 import supabase from '@/lib/supabaseClient'
+import CustomLink from '../UI/CustomLink'
+import Button from '../UI/Button'
+import Modal from '../modals/Modal'
 
 const SignUpForm: React.FC = () => {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+  const [error, setError] = useState<boolean>(false)
+  const [success, setSuccess] = useState<boolean>(false)
 
   const handleSignUp = async (
     e: React.FormEvent<HTMLFormElement>
@@ -12,9 +16,9 @@ const SignUpForm: React.FC = () => {
     e.preventDefault()
     const { error } = await supabase.auth.signUp({ email, password })
     if (error) {
-      alert(error.message)
+      setError(true)
     } else {
-      alert('Check your email for the confirmation link.')
+      setSuccess(true)
     }
   }
 
@@ -42,12 +46,13 @@ const SignUpForm: React.FC = () => {
             }
           />
         </div>
-        <button
-          type="submit"
-          className="rounded-lg bg-primary text-white font-semibold px-4 py-2"
+        <Button
+          type="primary"
+          size="lg"
+          action={(e: any): any => handleSignUp(e)}
         >
-          Sign Up
-        </button>
+          Create account
+        </Button>
 
         {/* <p>Or sign up using:</p>
         <div className=" flex gap-2">
@@ -61,6 +66,24 @@ const SignUpForm: React.FC = () => {
           </div>
         </div> */}
       </form>
+      <span>
+        <p>Already have an account?</p>
+        <CustomLink to="/login" label="Log in" />
+      </span>
+      <Modal
+        open={error}
+        setOpen={setError}
+        title="Error"
+        description="There was an error signing up. Please try again."
+        buttonLabel="Close"
+      />
+      <Modal
+        open={success}
+        setOpen={setSuccess}
+        title="Success"
+        description="You have successfully signed up! please check your email to verify your account."
+        buttonLabel="Close"
+      />
     </div>
   )
 }
