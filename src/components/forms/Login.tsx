@@ -1,5 +1,6 @@
 import React from 'react'
 import CustomLink from '../UI/CustomLink'
+import Button from '../UI/Button'
 
 const Login: React.FC = () => {
   return (
@@ -21,12 +22,9 @@ const Login: React.FC = () => {
           />
         </div>
         <CustomLink to="/forgotpassword" label="I Forgot my password?" />
-        <button
-          type="submit"
-          className="rounded-lg bg-primary text-white font-semibold px-4 py-2"
-        >
-          Login
-        </button>
+        <Button type="primary" size="lg">
+          Log in
+        </Button>
         <span className="flex gap-2">
           <p>Don&apos;t have an account?</p>
           <CustomLink to="/signup" label="Sign up" />
