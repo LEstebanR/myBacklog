@@ -11,7 +11,7 @@ const SignUpForm: React.FC = () => {
   const [success, setSuccess] = useState<boolean>(false)
 
   const handleSignUp = async (
-    e: React.FormEvent<HTMLFormElement>
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ): Promise<void> => {
     e.preventDefault()
     const { error } = await supabase.auth.signUp({ email, password })
@@ -25,7 +25,7 @@ const SignUpForm: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center p-8 gap-4">
       <h1 className="text-2xl font-bold">Get started for free</h1>
-      <form className="flex flex-col gap-4" onSubmit={handleSignUp}>
+      <form className="flex flex-col gap-4">
         <div className="flex flex-col">
           <label htmlFor="email">Email</label>
           <input
@@ -46,11 +46,7 @@ const SignUpForm: React.FC = () => {
             }
           />
         </div>
-        <Button
-          type="primary"
-          size="lg"
-          action={(e: any): Promise<void> => handleSignUp(e)}
-        >
+        <Button type="primary" size="lg" action={handleSignUp}>
           Create account
         </Button>
 
@@ -81,7 +77,7 @@ const SignUpForm: React.FC = () => {
         open={success}
         setOpen={setSuccess}
         title="Success"
-        description="You have successfully signed up! please check your email to verify your account."
+        description="You have successfully signed up! Please check your email to verify your account."
         buttonLabel="Close"
       />
     </div>
