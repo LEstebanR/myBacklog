@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react'
+import React, { useState } from 'react'
 import supabase from '@/lib/supabaseClient'
 import CustomLink from '../UI/CustomLink'
 import Button from '../UI/Button'
@@ -31,7 +31,7 @@ const SignUpForm: React.FC = () => {
           <input
             type="text"
             className="rounded-lg px-4 py-2 border border-black"
-            onChange={(e: ChangeEvent<HTMLInputElement>): void =>
+            onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
               setEmail(e.target.value)
             }
           />
@@ -41,7 +41,7 @@ const SignUpForm: React.FC = () => {
           <input
             type="password"
             className="rounded-lg px-4 py-2 border border-black"
-            onChange={(e: ChangeEvent<HTMLInputElement>): void =>
+            onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
               setPassword(e.target.value)
             }
           />
@@ -49,7 +49,7 @@ const SignUpForm: React.FC = () => {
         <Button
           type="primary"
           size="lg"
-          action={(e: any): any => handleSignUp(e)}
+          action={(e: any): Promise<void> => handleSignUp(e)}
         >
           Create account
         </Button>

@@ -4,7 +4,7 @@ interface ButtonProps {
   children: React.ReactNode
   type?: 'primary' | 'secondary'
   size?: 'sm' | 'md' | 'lg'
-  action?: any
+  action?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 const Button: React.FC<ButtonProps> = ({ children, type, size, action }) => {
@@ -41,7 +41,7 @@ const Button: React.FC<ButtonProps> = ({ children, type, size, action }) => {
     <button
       type="button"
       className={`rounded-lg ${colorClasses} py-2    text-white font-semibold border border-black`}
-      onClick={(e): any => (action ? action(e) : null)}
+      onClick={(e): void => (action ? action(e) : undefined)}
     >
       <p className="text-white">{children}</p>
     </button>

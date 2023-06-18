@@ -1,19 +1,26 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
 import { Dialog } from '@headlessui/react'
 import Button from '../UI/Button'
 
-const Modal = ({
+interface ModalProps {
+  open: boolean
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
+  title: string
+  description: string
+  buttonLabel: string
+}
+
+const Modal: React.FC<ModalProps> = ({
   open,
   setOpen,
   title,
   description,
   buttonLabel,
-}: any): any => {
+}) => {
   return (
     <Dialog
       open={open}
-      onClose={(): any => setOpen(false)}
+      onClose={(): void => setOpen(false)}
       className="relative z-50"
     >
       <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
@@ -27,7 +34,11 @@ const Modal = ({
             {description}
           </Dialog.Description>
           <div className="mt-4 flex gap-4 w-full justify-center">
-            <Button type="primary" size="sm" action={(): any => setOpen(false)}>
+            <Button
+              type="primary"
+              size="sm"
+              action={(): void => setOpen(false)}
+            >
               {buttonLabel}
             </Button>
           </div>
